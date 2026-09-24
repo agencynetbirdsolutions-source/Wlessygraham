@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahadev Restaurant — Authentic Indian Food, Fast Service</title>
+<meta name="description" content="Mahadev Restaurant serves freshly prepared authentic Indian dishes with quality ingredients and fast service. Order via WhatsApp and get 20% extra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-deep:#f7f7f5;
+    --card:#fafaf8;
+    --card-line:rgba(0,0,0,0.14);
+    --gold:#f4c430;
+    --gold-bright:#ffd84d;
+    --red:#d62828;
+    --red-bright:#e8483f;
+    --cream:#111111;
+    --sage:#4a4a4a;
+    --sage-dim:#8a8a8a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    font-family:'Inter', -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--cream);
+    line-height:1.6;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; line-height:1.15; color:var(--cream);}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+
+  /* ---------- HEADER (desktop only) ---------- */
+  header.site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--card-line);
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1120px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:1.25rem; color:var(--cream);}
+  .brand .mark{width:34px; height:34px; border-radius:50%; border:1.5px solid var(--red); color:var(--red); display:flex; align-items:center; justify-content:center; font-size:1rem;}
+  nav.main-nav{display:flex; gap:32px;}
+  nav.main-nav a{font-size:0.95rem; color:var(--sage); transition:color .2s;}
+  nav.main-nav a:hover{color:var(--red);}
+  .header-cta{
+    background:var(--gold); color:#1a1200; padding:10px 20px; border-radius:2px;
+    font-weight:700; font-size:0.9rem; letter-spacing:.02em; transition:background .2s;
+  }
+  .header-cta:hover{background:var(--gold-bright);}
+
+  /* header hidden entirely on small screens — banner comes first */
+  @media (max-width: 767px){
+    header.site-header{display:none;}
+  }
+
+  /* ---------- HERO / BANNER ---------- */
+  .hero{
+    position:relative;
+    padding-top:calc(72px + env(safe-area-inset-top,0px));
+    padding-bottom:72px;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(244,196,48,0.18), transparent 60%),
+      linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 60%);
+    overflow:hidden;
+    border-bottom:1px solid var(--card-line);
+  }
+  @media (max-width:767px){
+    .hero{ padding-top:calc(40px + env(safe-area-inset-top,0px)); }
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 90px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; max-width:760px; margin:0 auto; padding:0 24px; text-align:center;}
+  .hero-mobile-brand{
+    display:none;
+    align-items:center; justify-content:center; gap:10px;
+    font-family:'Fraunces',serif; font-size:1.15rem; color:var(--cream);
+    margin-bottom:28px;
+  }
+  .hero-mobile-brand .mark{width:32px; height:32px; border-radius:50%; border:1.5px solid var(--red); color:var(--red); display:flex; align-items:center; justify-content:center; font-size:0.95rem;}
+  @media (max-width:767px){
+    .hero-mobile-brand{display:flex;}
+  }
+  .eyebrow{
+    font-size:0.85rem; color:var(--sage); margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    margin-bottom:20px;
+  }
+  .hero h1 em{font-style:normal; color:var(--red);}
+  .hero p.lead{
+    font-size:1.08rem; color:var(--sage); max-width:560px; margin:0 auto 36px;
+  }
+  .hero-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:15px 30px; border-radius:2px; font-weight:700; font-size:0.95rem;
+    letter-spacing:.01em; transition:transform .15s ease, background .2s ease, color .2s ease;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{background:var(--gold); color:#1a1200;}
+  .btn-primary:hover{background:var(--gold-bright);}
+  .btn-outline{border:1.5px solid var(--red); color:var(--red); background:transparent;}
+  .btn-outline:hover{background:var(--red); color:#ffffff;}
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .section-head{max-width:560px; margin:0 0 48px;}
+  .section-head h2{font-size:clamp(1.8rem, 4vw, 2.4rem); margin-bottom:14px;}
+  .section-head p{color:var(--sage); font-size:1rem;}
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .about-copy p{color:var(--sage); margin-bottom:16px; font-size:1.02rem;}
+  .about-visual{
+    aspect-ratio:4/5; border-radius:4px; background:var(--card); border:1px solid var(--card-line);
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .about-visual .plate{
+    width:62%; aspect-ratio:1; border-radius:50%; border:1.5px dashed var(--red);
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif;
+    color:var(--cream); font-size:0.95rem; text-align:center; padding:20px;
+  }
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr; gap:32px;}
+    .about-visual{order:-1; aspect-ratio:16/9;}
+  }
+
+  /* ---------- WHY CHOOSE US ---------- */
+  .why-bg{background:var(--bg-deep); border-top:1px solid var(--card-line); border-bottom:1px solid var(--card-line);}
+  .features-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--card-line); border:1px solid var(--card-line);}
+  .feature{background:var(--bg-deep); padding:36px 28px;}
+  .feature .num{font-family:'Fraunces',serif; font-size:0.85rem; color:var(--red); margin-bottom:16px;}
+  .feature h3{font-size:1.15rem; margin-bottom:10px;}
+  .feature p{color:var(--sage); font-size:0.92rem;}
+  @media (max-width:900px){ .features-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .features-grid{grid-template-columns:1fr;} }
+
+  /* ---------- MENU ---------- */
+  .menu-list{display:grid; grid-template-columns:1fr 1fr; gap:16px 40px;}
+  .menu-item{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:20px 0; border-bottom:1px solid var(--card-line);
+  }
+  .menu-item h3{font-size:1.1rem; font-weight:500; color:var(--cream);}
+  .menu-item span{color:var(--red); font-size:0.85rem; white-space:nowrap;}
+  @media (max-width:700px){ .menu-list{grid-template-columns:1fr;} }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-bg{background:var(--bg-deep); border-top:1px solid var(--card-line); border-bottom:1px solid var(--card-line);}
+  .reviews-track{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .review-card{
+    background:var(--card); border:1px solid var(--card-line); border-radius:4px; padding:28px 24px;
+  }
+  .review-card .stars{color:var(--red); font-size:0.95rem; margin-bottom:14px; letter-spacing:2px;}
+  .review-card p{color:var(--cream); font-size:0.95rem;}
+  @media (max-width:900px){ .reviews-track{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .reviews-track{grid-template-columns:1fr;} }
+
+  /* ---------- ORDER CTA ---------- */
+  .cta-band{
+    background:linear-gradient(135deg, var(--card) 0%, var(--bg-deep) 100%);
+    border:1px solid var(--card-line); border-radius:6px;
+    padding:60px 40px; text-align:center;
+  }
+  .cta-band h2{font-size:clamp(1.7rem,4vw,2.3rem); margin-bottom:14px;}
+  .cta-band p{color:var(--sage); margin-bottom:30px; max-width:440px; margin-left:auto; margin-right:auto;}
+
+  /* ---------- HOURS + CONTACT ---------- */
+  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .info-block h3{font-size:1rem; color:var(--red); margin-bottom:14px; font-weight:600;}
+  .info-block p, .info-block a{color:var(--cream); font-size:1.02rem;}
+  .hours-row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--card-line); font-size:0.95rem; color:var(--sage);}
+  @media (max-width:700px){ .info-grid{grid-template-columns:1fr; gap:36px;} }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--bg-deep); border-top:1px solid var(--card-line);
+    padding:36px 0; text-align:center; padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));
+  }
+  footer p{color:var(--sage-dim); font-size:0.85rem;}
+
+  /* ---------- STICKY MOBILE ORDER BAR ---------- */
+  .mobile-bar{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:60;
+    background:var(--bg-deep); border-top:1px solid var(--card-line);
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));
+  }
+  .mobile-bar a{
+    display:block; text-align:center; background:var(--red); color:#ffffff;
+    padding:14px; border-radius:2px; font-weight:700; font-size:0.95rem;
+  }
+  @media (max-width:767px){
+    .mobile-bar{display:block;}
+    body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px));}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= HEADER (desktop / tablet only — hidden on mobile via CSS) ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top"><span class="mark">M</span> Mahadev Restaurant</a>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#why">Why Us</a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="https://wa.link/mahadev-" target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO / BANNER — first thing shown on mobile ================= -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-mobile-brand"><span class="mark">M</span> Mahadev Restaurant</div>
+      <p class="eyebrow">Fast Service</p>
+      <h1>Authentic Indian flavor, <em>made fresh</em> every day</h1>
+      <p class="lead">Experience delicious food crafted with authentic recipes and fresh ingredients. Mahadev Restaurant offers a comfortable dining experience for families, friends, and food lovers who enjoy quality taste.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.link/mahadev-" target="_blank" rel="noopener">Get 20% Extra</a>
+        <a class="btn btn-outline" href="https://wa.link/mahadev-" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="eyebrow" style="color:var(--red);">About Us</p>
+        <h2 style="margin-bottom:20px;">Made with care, served with warmth</h2>
+        <p>Mahadev Restaurant is dedicated to serving freshly prepared dishes with authentic taste and quality ingredients. Our goal is to create a memorable dining experience where customers can enjoy delicious food, warm hospitality, and a comfortable atmosphere.</p>
+        <p>From traditional Indian favorites to modern flavors, every dish is prepared with care by our experienced kitchen team.</p>
+      </div>
+      <div class="about-visual">
+        <div class="plate">Est. in the kitchen,<br>perfected on the plate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="why-bg" id="why">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2>Why Choose Mahadev Restaurant</h2>
+        <p>Four reasons our regulars keep coming back.</p>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="num">01</div>
+        <h3>Fresh Ingredients</h3>
+        <p>We use high quality ingredients to prepare every dish fresh for our customers.</p>
+      </div>
+      <div class="feature">
+        <div class="num">02</div>
+        <h3>Authentic Taste</h3>
+        <p>Our recipes are carefully crafted to deliver traditional flavors.</p>
+      </div>
+      <div class="feature">
+        <div class="num">03</div>
+        <h3>Comfortable Dining</h3>
+        <p>A welcoming environment perfect for families and gatherings.</p>
+      </div>
+      <div class="feature">
+        <div class="num">04</div>
+        <h3>Fast Service</h3>
+        <p>Quick service so you can enjoy your favorite meals without waiting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MENU ================= -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" style="color:var(--red);">Popular Dishes</p>
+        <h2>What everyone orders</h2>
+        <p>Each dish is prepared by experienced chefs who focus on taste, presentation, and quality.</p>
+      </div>
+      <div class="menu-list">
+        <div class="menu-item"><h3>Paneer Butter Masala</h3><span>Chef's Pick</span></div>
+        <div class="menu-item"><h3>Dal Makhani</h3><span>House Special</span></div>
+        <div class="menu-item"><h3>Veg Biryani</h3><span>Customer Favorite</span></div>
+        <div class="menu-item"><h3>Special Thali</h3><span>Full Meal</span></div>
+        <div class="menu-item"><h3>Tandoori Roti</h3><span>Fresh Baked</span></div>
+        <div class="menu-item"><h3>Butter Naan</h3><span>Fresh Baked</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="reviews-bg" id="reviews">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2>Customer Reviews</h2>
+        <p>What people are saying after their visit.</p>
+      </div>
+      <div class="reviews-track">
+        <div class="review-card"><div class="stars">★★★★★</div><p>Amazing food and great service.</p></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>One of the best places for family dining.</p></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>Delicious food with authentic taste.</p></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>Highly recommended for anyone who loves great food.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORDER CTA ================= -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Order Now &amp; Get 20% Extra</h2>
+        <p>Order your favorite dishes directly through WhatsApp and enjoy a special discount.</p>
+        <a class="btn btn-primary" href="https://wa.link/mahadev-" target="_blank" rel="noopener">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOURS + CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap info-grid">
+      <div class="info-block">
+        <h3>Opening Hours</h3>
+        <div class="hours-row"><span>Monday – Sunday</span><span>10:00 AM – 11:00 PM</span></div>
+      </div>
+      <div class="info-block">
+        <h3>Contact Mahadev Restaurant</h3>
+        <p style="margin-bottom:8px;">Email: <a href="mailto:mahadevrestaurant@gmail.com">mahadevrestaurant@gmail.com</a></p>
+        <p>WhatsApp: <a href="https://wa.link/mahadev-" target="_blank" rel="noopener">wa.link/mahadev-</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>&copy; 2026 Mahadev Restaurant. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MOBILE STICKY ORDER BAR ================= -->
+  <div class="mobile-bar">
+    <a href="https://wa.link/mahadev-" target="_blank" rel="noopener">🎉 Order Now — Get 20% Extra</a>
+  </div>
+
+</body>
+</html>
